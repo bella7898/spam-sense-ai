@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content />
+        <meta name="author" content />
+        <title>Spam-Sense AI | Demo</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/aicamp.png" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" type="text/css" href="{{url_for("static", filename="css/styles.css")}}" />
+    </head>
+  
+<body class="d-flex flex-column">
+    <main class="flex-shrink-0">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-5">
+                <a class="navbar-brand" href="{{url_for('index')}}">Spam-Sense AI</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"<span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="{{url_for('index')}}">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{url_for('about')}}">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{url_for('demo')}}">Demo</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Page content-->
+            <section class="py-5">
+                <div class="container px-5 text-center">
+                  <!-- Contact form-->
+                    <div class="bg-light rounded-3 py-5 px-5 px-md-1 mb-3">
+                        <div class="text-center mb-0">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
+                          <p class="lead fw-normal text-muted mb-3">Please enter the content you wish to identify below, and then click the "Submit" button.</p>
+                        </div>
+                          <div class="row gx-5 justify-content-center">
+                            <div class="col-lg-8 col-xl-6">
+                              <form method="post" action="{{url_for('generateclassification')}}">
+                                <div class="form-floating mb-3">
+                                  <textarea class="form-control" type="text" id="input" style="height: 10rem" placeholder="Enter your message here..." name="message"></textarea>
+                                </div>
+                                <div class="d-grid">
+                                  <input class="btn btn-primary btn-lg mb-5" type="submit" xid="submitButton">
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                    <div class="px-5" id="inputResults" style="display: block;">
+                      <p class="lead fw-normal text-muted">Our model predicts that your message is: {{score1}}% {{label1}} and {{score2}}% {{label2}}</p>
+                      <div class="mb-1 bargraph" style="width:{{score1}}%"></div><p class="text-muted">{{label1}}</p>
+                      <div class="bargraph" style="width:{{score2}}%"></div><p class="text-muted">{{label2}}</p>
+                    </div>
+
+                    </div>
+                  <div style="display: flex;">
+                    <div style="flex: 50%;">
+                            <button class="accordion">Example Spam Inputs</button>
+                            <div class="panel">
+                              <p>Congratulations, you have been gifted 0.5 BTC. Click here to claim it now!         <p>
+                              <p>Your Amazon account has been suspended. Please click here to reactivate your account now.</p>
+                              <p>Our records indicate that you have overpaid for (a product or service). Please provide us with your bank routing and account number to expedite your refund.                         </p>
+                              <p>Lose 10 pounds in 5 days with our revolutionary weight loss pill!                          </p>
+                              <p>Limited time offer: Buy one, get one free on all our products!</p>
+      
+                              <p>ACTION REQUIRED. Please verify your Bank of America account information to avoid a hold on your account. Click here to confirm:</p>
+                            </div>
+                    </div>
+                    <div style="flex:50%;">
+                        <button class="accordion">Example Ham Inputs</button>
+                          <div class="panel">
+                            <p>Hi John, here's the agenda for our team meeting tomorrow.</p>
+                            <p>Thank you for your recent purchase. Your order is on its way.</p>
+                            <p>Reminder: Your appointment with Dr. Smith is scheduled for Friday at 2 PM.</p>
+                            <p>The quarterly report has been updated. Please review the changes.</p>
+                            <p>Invitation: Join us for a charity event this Saturday at the local community center</p>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+            </section>
+                      
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Spam-Sense AI</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="https://www.ai-camp.org/">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+          var acc = document.getElementsByClassName("accordion");
+          var i;
+          
+          for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+              /* Toggle between adding and removing the "active" class,
+              to highlight the button that controls the panel */
+              this.classList.toggle("active");
+          
+              /* Toggle between hiding and showing the active panel */
+              var panel = this.nextElementSibling;
+              if (panel.style.display === "block") {
+                panel.style.display = "none";
+              } else {
+                panel.style.display = "block";
+              }
+            });
+          }
+        </script>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+    </section>              
+    </body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Spam-Sense AI | About</title>
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/aicamp.png') }}" />
+  <!-- Bootstrap icons-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link rel="stylesheet" type="text/css" href="{{url_for("static", filename="css/styles.css")}}" />
+</head>
+
+<body class="d-flex flex-column">
+  <main class="flex-shrink-0">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container px-5">
+        <a class="navbar-brand" href="{{url_for('index')}}">Spam-Sense AI</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+            class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="{{url_for('index')}}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{url_for('about')}}">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{url_for('demo')}}">Demo</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Header-->
+    <header class="py-5">
+      <div class="container px-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 col-xxl-6">
+            <div class="text-center my-5">
+              <h1 class="fw-bolder mb-3">Our Story</h1>
+              <p class="lead fw-normal text-muted mb-4"> Spam Sense AI was collaboratively developed by students over
+                the course of three-weeks at AI camp under the guidance of camp mentor Cason Shepard, with the aim of
+                providing accessible and dependable tools for identifying spam and scam
+                emails with high quality and efficiency for users worldwide.</p>
+              <a class="btn btn-primary btn-lg" href="#scroll-target">Read our story below</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- About section one-->
+    <section class="py-5 bg-light" id="scroll-target">
+      <div class="container px-5 my-5" id="data">
+        <div class="row gx-5 align-items-center">
+          <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="{{ url_for('static', filename='assets/pbrainstorm.png') }}"
+              alt="Project Brainstorm" /></div>
+          <div class="col-lg-6">
+            <h1 class="text-muted">Brainstorming our Idea</h1>
+            <p class="lead fw-normal text-muted mb-0"> Intially, we focused on identifying a number of potential
+              projects that would align with Natural Language Processing (NLP). Eventually, after conducting research
+              and checking the viability given our circumstances in the camp, we decided upon a project which would
+              identify user spam emails & SMS and named it "Spam-Sense".</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About section two-->
+    <section class="py-5">
+      <div class="container px-5 my-5">
+        <div class="row gx-5 align-items-center">
+          <div class="col-lg-6 order-first order-lg-last">
+            <img class="img-fluid rounded mb-5 mb-lg-0" src="{{ url_for('static', filename='assets/huggingfacedb.png') }}" alt="..." />
+          </div>
+          <div class="col-lg-6 order-first order-lg-last">
+            <img class="img-fluid rounded mb-5 mb-lg-0" src="{{ url_for('static', filename='assets/databrainstorm.png') }}" alt="..." />
+          </div>
+          <div class="col-lg-6">
+            <h1>Collecting our Data</h1>
+            <p class="lead fw-normal text-muted mb-0"> After finalizing our project idea, the next pivotal step we took
+              was centered around data collection. We explored a number of platforms such as Kaggle, Huggingface, and
+              several others, eventually securing two distinct datasets. The first dataset was for email spam, while the
+              second dataset catered to SMS spam..</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="py-5 bg-light" id="scroll-target">
+      <div class="container px-5 my-5">
+        <div class="row gx-5 align-items-center">
+          <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="{{ url_for('static', filename='assets/preprocess.png') }}"
+              alt="Project Brainstorm" /></div>
+          <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="{{ url_for('static', filename='assets/datatable.png') }}"
+              alt="Project Brainstorm" /></div>
+          <div class="col-lg-6">
+            <p><br></p>
+            <h1 class="text-muted">Preprocessing the Data</h1>
+            <p class="lead fw-normal text-muted mb-0"> Following the data collection, we needed to pre-process it using
+              a number of NLP techniques including word tokenization, removing punctuation & special characters,
+              removing empty cells, etc. We also combined and labeled our datasets for the purpose of convenience. This
+              step would be crucial for later data analysis and would help improve the accuracy of our model.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About section two-->
+    <section class="py-5" id="training">
+      <div class="container px-5 my-5">
+        <div class="row gx-5 align-items-center">
+          <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="{{ url_for('static', filename='assets/test.png') }}"
+              alt="..." /></div>
+          <div class="col-lg-6">
+            <h1>Training and Testing</h1>
+            <p class="lead fw-normal text-muted mb-0"> We later trained and tested our model (DistilBERT) which utilized
+              the 80/20 split method. Initially, we were only able to achieve around 69% accuracy, however we were
+              eventually able to reach around 98.8% accuracy after adjusting the learning rate, weight decay, and the
+              number of epochs. </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="py-5 bg-light" id="webdev">
+      <div class="container px-5 my-5">
+        <div class="row gx-5 align-items-center">
+          <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="{{ url_for('static', filename='assets/website.png') }}"
+              alt="Project Brainstorm" /></div>
+          <div class="col-lg-6">
+            <h1 class="text-muted">Developing our Website</h1>
+            <p class="lead fw-normal text-muted mb-0">
+              The tech stack we used for web development included HTML/CSS and Bootstrap for the frontend and Flask for the backend - connecting our model to the
+              website, which can be found on the 'Demo' page.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <section class="py-5">
+      <div class="container px-5 my-5">
+        <div class="row gx-5 align-items-center">
+          <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="{{ url_for('static', filename='assets/discordbot.png') }}"
+              alt="Project Brainstorm" /></div>
+          <div class="col-lg-6">
+            <h1>Additional Applications</h1>
+            <p class="lead fw-normal mb-0">Finally, we turned our model into a discord bot! By running the command $checkmsg, the discord bot sends the rest of the message to get checked for spam or ham. See the examples on the left of this in action: </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Team members section-->
+    <section class="py-5 bg-light">
+      <hr style="border-top:2px solid grey;">
+      <div class="container px-5 my-5">
+        <div class="text-center">
+          <h2 class="lead fw-normal text-muted mb-5">Our team</h2>
+          <p class="lead fw-normal text-muted mb-5"></p>
+        </div>
+        <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
+          <div class="col mb-5 mb-5 mb-xl-0">
+            <div class="text-center">
+              <img class="img-fluid rounded-circle mb-4 px-4" src="{{ url_for('static', filename='assets/paulo.png') }}"
+                alt="Paulo Batista Ferraz" />
+              <h5 class="lead fw-normal text-muted mb-5">Paulo Batista Ferraz</h5>
+              <div class="fst-italic text-muted">Product Manager</div>
+            </div>
+          </div>
+          <div class="col mb-5 mb-5 mb-xl-0">
+            <div class="text-center">
+              <img class="img-fluid rounded-circle mb-4 px-4" src="{{ url_for('static', filename='assets/bella.JPG') }}" alt="..." />
+              <h5 class="lead fw-normal text-muted mb-5">Bella Wang</h5>
+              <div class="fst-italic text-muted">Machine Learning Engineer</div>
+            </div>
+          </div>
+          <div class="col mb-5 mb-5 mb-sm-0">
+            <div class="text-center">
+              <img class="img-fluid rounded-circle mb-4 px-4" src="{{ url_for('static', filename='assets/jyu.jpg') }}" alt="..." />
+              <h5 class="lead fw-normal text-muted mb-5">Jeffrey Yu</h5>
+              <div class="fst-italic text-muted">Video Editor & Web Designer</div>
+            </div>
+          </div>
+          <div class="col mb-5">
+            <div class="text-center">
+              <img class="img-fluid rounded-circle mb-4 px-4" src="{{ url_for('static', filename='assets/EvrekProfilePic.jpg') }}" alt="..." />
+              <h5 class="lead fw-normal text-muted mb-5">Evrek Smith</h5>
+              <div class="fst-italic text-muted">Web Designer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer-->
+  <footer class="bg-dark py-4 mt-auto">
+    <div class="container px-5">
+      <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+        <div class="col-auto">
+          <div class="small m-0 text-white">Copyright &copy; Spam-Sense AI</div>
+        </div>
+        <div class="col-auto">
+          <!--
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>-->
+          <a class="link-light small" href="https://www.ai-camp.org/">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="js/scripts.js"></script>
+</body>
+
+</html>
