@@ -1,2 +1,2 @@
-# spam-message-classification
- flask web app for identifying spam messages
+# spam-sense-ai
+ flask web app for detecting spam messages using ai
